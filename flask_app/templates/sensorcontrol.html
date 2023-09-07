@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Sensor Control</title>
+
+    <link rel="stylesheet" href="../static/styles.css">
+    <!-- include fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <!-- navigation -->
+    <nav>
+        <ul>
+            <li><a href="/">Sensor Data</a></li>
+            <li><a href="/realtimechart">Realtime Chart</a></li>
+            <li><a href="/sensorcontrol" class="activelink">Sensor Control</a></li>
+        </ul>
+    </nav>
+
+    <!-- simple control table -->
+    <h2>Binary Control</h2>
+    <table class="data-table" id="arduino-table">
+        <tr>
+            <th>Sensor ID</th>
+            <th>Red LED</th>
+            <th>Green LED</th>
+            <th>Blue LED</th>
+        </tr>
+    </table>
+
+    <!-- complex command input -->
+    <h2>Variable Control</h2>
+    <div class="input-container">
+        <div class="input-box">
+            <label for="id-input">ID:</label>
+            <input type="number" id="id-input" min="0" max="255" placeholder="0" required>
+        </div>
+        <div class="input-box">
+            <label for="red">R:</label>
+            <input type="number" id="red-input" min="0" max="255" placeholder="0" required>
+        </div>
+        <div class="input-box">
+            <label for="green">G:</label>
+            <input type="number" id="green-input" min="0" max="255" placeholder="0" required>
+        </div>
+        <div class="input-box">
+            <label for="blue">B:</label>
+            <input type="number" id="blue-input" min="0" max="255" placeholder="0" required>
+        </div>
+        <button id="submit-btn" onClick="onCommandSubmit()">Submit</button>
+    </div>
+
+    <script src="../static/sensorcontrol.js"></script>
+</body>
+
+</html>

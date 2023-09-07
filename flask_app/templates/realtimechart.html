@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Realtime Chart</title>
+
+    <link rel="stylesheet" href="../static/styles.css">
+    <!-- include fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter&display=swap" rel="stylesheet">
+    <!-- google charts -->
+    <script src="https://www.gstatic.com/charts/loader.js">
+    </script>
+</head>
+
+<body>
+    <!-- navigation -->
+    <nav>
+        <ul>
+            <li><a href="/">Sensor Data</a></li>
+            <li><a href="/realtimechart" class="activelink">Realtime Chart</a></li>
+            <li><a href="/sensorcontrol">Sensor Control</a></li>
+        </ul>
+    </nav>
+
+    <!-- realtime data chart-->
+    <h2>Real-Time Data Chart</h2>
+    <!-- input for arduino id -->
+    <div>
+        <label for="chart-input">Enter Arduino ID:</label>
+        <input type="number" id="chart-idinput" placeholder="0">
+        <button onclick="startSimulation()">Start Simulation</button>
+        <button onclick="stopSimulation()">Stop Simulation</button>
+    </div>
+    <div id="realtime-chart" style="width:100%; max-width:100vw; height:500px;"></div>
+
+    </div>
+
+    <script src="../static/realtimechart.js"></script>
+    <script>
+        //number of arduinos or sensors
+        let num_arduinos = 1;
+        //gap_seconds from app.py * 1000
+        let gap_seconds = 150000
+        //time before fetching data/updating chart again 
+        let intervalTime = gap_seconds / num_arduinos;
+
+        // function to start simulation (fetch data every x milliseconds)
+        function startSimulation() {
+            console.log("Starting simulation...");
+            intervalId = setInterval(drawChart, intervalTime);
+        }
+
+        // function to stop simulation
+        function stopSimulation() {
+            console.log("Stopped simulation.");
+            clearInterval(intervalId);
+        }
+    </script>
+</body>
+
+</html>

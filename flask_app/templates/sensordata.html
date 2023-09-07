@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Arduino NANO</title>
+
+    <link rel="stylesheet" href="../static/styles.css">
+    <!-- include fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <!-- navigation -->
+    <nav>
+        <ul>
+            <li><a href="/" class="activelink">Sensor Data</a></li>
+            <li><a href="/realtimechart">Realtime Chart</a></li>
+            <li><a href="/sensorcontrol">Sensor Control</a></li>
+        </ul>
+    </nav>
+
+    <!-- data display table -->
+    <div class="data-section">
+        <h2>Arduino Data</h2>
+        <!-- Filter -->
+        <div class="filter-container">
+            <label class="filter-label" for="id-filter">Filter by ID:</label>
+            <input class="filter-input" type="id" id="id-filter">
+            <label class="filter-label" for="date-filter">Filter by Date:</label>
+            <input class="filter-input" type="date" id="date-filter">
+            <button class="filter-button" onclick="applyFilters()">Apply Filters</button>
+        </div>
+        <!-- Data table -->
+        <table class="data-table" id="sensor-table">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Date</th>
+                    <th>Time</th>
+                    <th>Value</th>
+                    <th>Unit</th>
+                </tr>
+            </thead>
+            <tbody id="data-body">
+                {% for sensor in sensor_data %}
+                <tr>
+                    <td>{{ sensor.id }}</td>
+                    <td>{{ sensor.date }}</td>
+                    <td>{{ sensor.time }}</td>
+                    <td>{{ sensor.sensor_value }}</td>
+                    <td>{{ sensor.sensor_unit }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+
+    <script src="../static/sensordata.js"></script>
+    <script>
+        //number of arduinos or sensors
+        let num_arduinos = 1;
+        //gap_seconds from app.py * 1000
+        let gap_seconds = 150000
+        //time before fetching data/updating chart again 
+        let intervalTime = gap_seconds / num_arduinos;
+
+        // call updateTable() every x milliseconds (sensor data dynamic display)
+        setInterval(updateTable, intervalTime);
+    </script>
+</body>
+
+</html>

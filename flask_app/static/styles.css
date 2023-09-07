@@ -1,0 +1,223 @@
+*{
+  font-family: 'Inter', sans-serif;
+}
+//------------Switches------------
+body {
+    font-family: 'Courier New', Courier, monospace;
+    text-align: center;
+    margin: 0;
+    padding: 0;
+  }
+  
+  h1 {
+    margin-top: 50px;
+  }
+  
+  .led-control {
+    margin-top: 30px;
+  }
+  
+  h2 {
+    margin-bottom: 10px;
+    color: #324077;
+  }
+  
+  .switch {
+    position: relative;
+    display: inline-block;
+    width: 60px;
+    height: 34px;
+  }
+  
+  .switch input {
+    display: none;
+  }
+  
+  .slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #ccc;
+    transition: .4s;
+    border-radius: 34px;
+  }
+  
+  .slider:before {
+    position: absolute;
+    content: "";
+    height: 26px;
+    width: 26px;
+    left: 4px;
+    bottom: 4px;
+    background-color: white;
+    transition: .4s;
+    border-radius: 50%;
+  }
+  
+  input:checked + .slider {
+    background-color: #2196F3;
+  }
+  
+  input:checked + .slider:before {
+    transform: translateX(26px);
+  }
+  
+  .slider.round {
+    border-radius: 34px;
+  }
+  
+  .slider.round:before {
+    border-radius: 50%;
+  }
+
+
+  //-----------------Tables--------------
+   .data-table {
+    border-collapse: collapse;
+    font-family: 'Courier New', Courier, monospace;
+    margin-bottom: 20px;
+
+  }
+
+.data-table th {
+    border: 1px solid rgb(255,255,255);
+    padding: 8px;
+    text-align: left;
+    background-color: #324077;
+    color: white;
+    font-weight: bold;
+}
+
+.data-table td {
+    border: 1px solid rgb(255,255,255);
+    padding: 8px;
+    text-align: left;
+}
+
+.data-table tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+//------------Filter-------------------
+.filter-container {
+  padding: 30px;
+  background-color: #f2f2f2;
+  border-radius: 8px;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+/* Styling for labels */
+.filter-label {
+  margin-right: 10px;
+}
+
+/* Styling for input fields */
+.filter-input {
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+/* Styling for the Apply Filters button */
+.filter-button {
+  padding: 10px 20px;
+  background-color: #324077;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+/* Hover effect for the button */
+.filter-button:hover {
+  background-color: #5867A3;
+}
+
+//----------Command inputs------------------
+.input-container {
+  background-color: #fff;
+  border-radius: 10px;
+  padding: 20px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  max-width: 400px;
+  width: 100%;
+}
+
+.input-box {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+label {
+  font-size: 16px;
+  margin-right: 10px;
+  color: #333;
+}
+
+input {
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  padding: 8px;
+  width: 100px;
+}
+
+button {
+  background-color: #324077;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  padding: 10px 20px;
+  cursor: pointer;
+  width: 150px;
+  font-size: 16px;
+  transition: background-color 0.3s ease;
+}
+
+button:hover {
+  background-color: #5867A3;
+}
+
+
+//-----------------Navigation----------
+nav {
+  background-color: #324077;
+  height: 60px; /* Adjust the height as per your preference */
+  display: flex;
+  justify-content: center;
+}
+
+ul {
+  background-color: #324077;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  height: 60px; 
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+li {
+  margin: 0 10px;
+}
+
+a {
+  color: #fff;
+  text-decoration: none;
+  padding: 20px 10px;
+  transition: color 0.3s ease;
+}
+
+a:hover {
+  color: #00e6ff;
+}
+
+.activelink{
+  color: #00e6ff;
+}
