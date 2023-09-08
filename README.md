@@ -154,7 +154,7 @@ ___
 
 ### Alternative Microcontrollers for additional features or optimization
 ESP32
-[Asynchronous Webserver](https://github.com/me-no-dev/ESPAsyncWebServer) for handling multiple connections at the same time, simplified server code, and energy efficiency.
+1. [Asynchronous Webserver](https://github.com/me-no-dev/ESPAsyncWebServer) for handling multiple connections at the same time, simplified server code, and energy efficiency.
 ```arduino
 #include <WiFi.h>
 #include <ESPAsyncWebServer.h>
@@ -183,7 +183,9 @@ void loop() {
 ```
 
 
-More resources and examples for [multicore programming](https://randomnerdtutorials.com/esp32-dual-core-arduino-ide/) (i.e. one core handles the server while the other deals with sensor readings) for reduced interruptions between tasks and increased speed from parallel processing.
+2. More resources and examples for [multicore programming](https://randomnerdtutorials.com/esp32-dual-core-arduino-ide/) (i.e. one core handles the server while the other deals with sensor readings) for reduced interruptions between tasks and increased speed from parallel processing.
+
+3. [ESPmDNS library](https://github.com/espressif/arduino-esp32/blob/master/libraries/ESPmDNS/examples/mDNS_Web_Server/mDNS_Web_Server.ino) available for static address (alternative for using IP addresses to reach the server)
 
  
 
